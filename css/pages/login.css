@@ -1,0 +1,89 @@
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+body {
+	background: #111111;
+	color: #383a3c;
+	font-weight: 400;
+	font-size: 1em;
+	line-height: 1.25;
+	font-family: 'Raleway', Calibri, Arial, sans-serif;
+}
+/* 导航栏样式设置 */
+nav{
+  background: rgba(0,0,0,0.2);
+  height: 50px;
+
+}
+ul
+{
+  margin:0;
+}
+
+header
+{
+  background: rgba(0,0,0,0.2);
+}
+
+
+nav ul
+{
+  list-style: none;
+  margin: 0;
+  float: right;
+
+}
+
+nav ul li,nav .logo
+{
+  display: inline-block;
+  line-height: 50px;
+  margin-left: 50px;
+
+}
+nav ul li a
+{
+  line-height: inherit;
+  text-decoration: none;
+  display: inline-block;
+  height:inherit;
+  color: #fff;
+  margin-right: 20px;
+}
+nav ul li.logo
+{
+  float: left;
+  padding: 10px;
+}
+
+nav .logo a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+
+/* 按钮，超链接样式设置 */
+a, button {
+	outline: none;
+}
+
+a {
+	color: #566473;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+	color: #34495e;
+}
+
+section {
+	padding: 1em;
+	text-align: center;
+}
+
+p.ref {
+	text-align: center;
+	padding: 2em 1em;
+}

@@ -8,6 +8,6 @@ const footerTpl = function () {
 };
 
 const footer = footerTpl.toString().replace(/^[^\/]+\/\*!?/, '').replace(/\*\/[^\/]+$/, '') +
-      '</div></body></html>';
+      '</html>';
 document.write(footer);
 })();

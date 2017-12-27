@@ -1,0 +1,99 @@
+/* 导航栏样式设置 */
+nav{
+  background: rgba(0,0,0,1);
+  height: 50px;
+
+}
+ul
+{
+  margin:0;
+}
+
+header
+{
+  background: rgba(0,0,0,0.2);
+}
+
+
+nav ul
+{
+  list-style: none;
+  margin: 0;
+  float: right;
+
+}
+
+nav ul li,nav .logo
+{
+  display: inline-block;
+  line-height: 50px;
+  margin-left: 50px;
+
+}
+nav ul li a
+{
+  line-height: inherit;
+  text-decoration: none;
+  display: inline-block;
+  height:inherit;
+  color: #fff;
+  margin-right: 20px;
+}
+nav ul li.logo
+{
+  float: left;
+  padding: 10px;
+}
+
+nav .logo a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+/* footer样式 */
+footer
+{
+  background: #000;
+  color: #fff;
+  min-height: 200px;
+  text-align: center;
+}
+
+ul.share-group
+{
+  display: block;
+  width: 1080px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.share-group li{
+  display: inline-block;
+  padding: 10px;
+}
+
+.copy
+{
+  padding-bottom: 20px;
+}
+
+.copy
+{
+  padding-bottom: 20px;
+}
+.title{
+  cursor: pointer;
+}
+.con{
+  cursor: pointer;
+}
+.title:hover{
+  color:#337ab7;
+}
+ .con:hover{
+   color:#337ab7;
+ }
+ .reply:hover{
+   color:#337ab7;
+ }
