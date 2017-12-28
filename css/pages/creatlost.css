@@ -69,19 +69,12 @@ header
   margin-bottom: 50px;
 }
 
-
-/* table样式 */
-.table-responsive
+/* form样式 */
+.form
 {
-  margin-top:150px;
+  width: 500px;
 }
 
-.btn
-{
-  float: right;
-  margin-right: 50px;
-  margin-bottom: 20px;
-}
 
 
 /* footer样式 */

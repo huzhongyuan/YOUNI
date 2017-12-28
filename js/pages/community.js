@@ -60,6 +60,8 @@ window.onload = function () {
                 '<span class="name" style="font-size:14px;float:right;margin-right:80px;">' + '--' + json.topics[i].name + '</span>' +
                 '<br>' +
                 '<small style="float:right;margin-right:80px;"><span class="praise" style="cursor:pointer;">👍</span><span class="num"> ' + json.topics[i].praise_amount + ' </span> · <span class="reply"  style="cursor:pointer;">回复</span> · 3 hrs</small>' +
+                '<br>' +
+                '<small style="float:right;margin-right:80px;font-size:12px;color:#cccccc;"><span class="view" style="color:#cccccc;">' + json.topics[i].click_amount + '</span></small>' +
               '</p>' +
             '</div>' +
             '</div>';
@@ -115,74 +117,21 @@ window.onload = function () {
         //点击跳转到话题详情
         title[i].onclick = () => {
           sessionStorage.setItem('topicId', topic[i]);
-          window.location.href = 'communityInfo';
+          window.location.href = 'communityInfo.html';
         };
 
         con[i].onclick = () => {
           sessionStorage.setItem('topicId', topic[i]);
-          window.location.href = 'communityInfo';
+          window.location.href = 'communityInfo.html';
         };
 
         reply[i].onclick = () => {
           sessionStorage.setItem('topicId', topic[i]);
-          window.location.href = 'communityInfo';
+          window.location.href = 'communityInfo.html';
         };
       }
     })();
 
   });
 
-  //社区话题搜索栏
-  let Search = () => {
-      const topicBox = document.getElementById('topicBox');
-      let arr = [];
-
-      //加载热点话题
-      let hotTopic = new Promise((resolve, reject) => {
-        $.ajax({
-          type: 'get',
-          datType: 'json',
-          url: '/YouNi/topic/hotTopic',
-          success: function (json) {
-            if (json.status == 1) {
-              for (let i in json.topics) {
-                let hotTitle = document.createElement('div');
-                hotTitle.className = 'hotTitle';
-                hotTopic.innerHTML = '<a class="panel-block is-active " style="border-left-color:#dbdbdb;">' +
-                '<span class="panel-icon">' +
-                  '<i class="fa fa-book"></i>' +
-                '</span>' +
-                json.topics[i].theme +
-              '</a>';
-                arr.push(json.topics[i].topic_id);
-                topicBox.appendChild(hotTitle);
-              };
-
-              resolve('Success!');
-            }else {
-              alert('网络错误');
-            }
-          },
-
-          error: function (json) {
-            alert(JSON.stringify(json));
-          },
-        });
-
-      });
-      hotTopic.then((successMessage) => {
-        console.log(successMessage);
-        let hotTitle = document.getElementsByClassName('hotTitle');
-        for (let i in hotTitle) {
-          hotTitle[i].onclick = () => {
-            sessionStorage.setItem('topicId', arr[i]);
-            window.location.herf = 'communityInfo.html';
-          };
-        }
-      });
-
-    };
-
-  //社区话题搜索栏
-  Search();
 };

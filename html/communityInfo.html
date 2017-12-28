@@ -5,17 +5,7 @@
 <body>
 		  <!-- 页头开始 -->
     <header>
-      <nav>
-        <div class="logo"><a href="index.html">邮你</a></div>
-        <ul>
-          <li><a href="index.html" class=“active”>首页</a></li>
-          <li><a href="community.html">社区</a></li>
-          <li><a href="organization.html">组织</a></li>
-          <li><a href="lost.html">招领</a></li>
-          <li><a href="sign.html">注册</a></li>
-          <li><a href="login.html">登录</a></li>
-        </ul>
-      </nav>
+      <script type="text/javascript" src = "../js/module/nav.js"></script>
     </header>
           <!-- 页头结束 -->
 
@@ -55,18 +45,22 @@
         <img src="https://bulma.io/images/placeholders/128x128.png">
       </p>
     </figure>
-    <div class="media-content">
+    <div class="media-content" id="mediaContent">
       <div class="content">
         <p>
-          <strong>Barbara Middleton</strong>
+          <span class="title" style="font-size:20px;">Barbara Middleton</span>
           <br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+          <span class="con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.</span>
           <br>
-          <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+          <span class="name" style="font-size:14px;float:right;margin-right:80px;">--胡钟元</span>
+          <br>
+          <small style="float:right;margin-right:80px;"><span class="praise" style="cursor:pointer;">👍</span><span class="num"> +10 </span>· 3 hrs</small>
+          <br>
+          <small style="float:right;margin-right:80px;font-size:12px;color:#cccccc;">浏览量：<span class="view" style="color:#cccccc;">11</span></small>
         </p>
       </div>
 
-      <article class="media">
+      <article class="media"style="">
         <figure class="media-left">
           <p class="image is-48x48">
             <img src="https://bulma.io/images/placeholders/96x96.png">
@@ -75,34 +69,15 @@
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>Sean Brown</strong>
-              <br>
-              Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a nulla sagittis, a lobortis leo feugiat.
-              <br>
-              <small>2 hrs</small>
+            <span class="rcon">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.</span>
+            <br>
+              <small><span class="rname" style="font-size:14px;">胡钟元</span>·<span class="rtime">2 hrs</span></small>
             </p>
           </div>
         </div>
       </article>
 
-      <article class="media">
-        <figure class="media-left">
-          <p class="image is-48x48">
-            <img src="https://bulma.io/images/placeholders/96x96.png">
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong>Kayli Eunice </strong>
-              <br>
-              Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
-              <br>
-              <small>2 hrs</small>
-            </p>
-          </div>
-        </div>
-      </article>
+
     </div>
   </article>
   <article class="media">
@@ -114,12 +89,12 @@
     <div class="media-content">
       <div class="field">
         <p class="control">
-          <textarea class="textarea" placeholder="Add a comment..."></textarea>
+          <textarea class="textarea" id="replycontent" placeholder="Add a comment..."></textarea>
         </p>
       </div>
       <div class="field">
         <p class="control">
-          <button class="button">评论</button>
+          <button class="button" id="reply">评论</button>
         </p>
       </div>
     </div>
@@ -148,9 +123,8 @@
 
 
 
-
     <div style="position:fixed;top:150px;right:50px;">
-      <nav class="panel">
+      <nav class="panel" id="topicBox">
         <p class="panel-heading">
           社区话题搜索
         </p>
@@ -165,27 +139,10 @@
         <p class="panel-tabs">
           热议榜
         </p>
-        <a class="panel-block is-active">
-          <span class="panel-icon">
-            <i class="fa fa-book"></i>
-          </span>
-          bulma
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fa fa-book"></i>
-          </span>
-          marksheet
-        </a>
-        <a class="panel-block">
-          <span class="panel-icon">
-            <i class="fa fa-book"></i>
-          </span>
-          minireset.css
-        </a>
+
+
       </nav>
     </div>
-
 
 
 
@@ -203,4 +160,5 @@
 		<div style="text-align:center;">
 </div>
 	</body>
+  <script type="text/javascript" src="../js/module/Communityhurdles.js"></script>
     <script type="text/javascript" src = "../js/module/footer.js"></script>

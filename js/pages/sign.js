@@ -11,8 +11,7 @@ window.onload = () => {
   const rgp = /^\w+$/;
 
   //id验证
-  rgid = () => {
-    sid.onblur = () => {
+  let rgid = sid.onblur = () => {
       if (sid.value == '') {
         console.log('id为空');
       } else if (rg.test(sid.value)) {
@@ -22,11 +21,9 @@ window.onload = () => {
         console.log('错误');
       }
     };
-  };
 
   //用户名验证
-  rgusername = () => {
-    username.onblur = () => {
+  let rgusername = username.onblur = () => {
       if (username.value == '') {
         console.log('用户名为空');
       } else if (rgu.test(username.value)) {
@@ -37,37 +34,33 @@ window.onload = () => {
         console.log('错误');
       }
     };
-  };
 
   //密码验证
-  rgpassword = () => {
-    password.onblur = () => {
+  let rgpassword = password.onblur = () => {
       if (password.value == '') {
         console.log('密码为空');
-      } else if (rg.test(password.value)) {
+      } else if (rgp.test(password.value)) {
         console.log('正确');
         return true;
       }else {
         console.log('错误');
       }
     };
-  };
 
   //重复密码验证
-  rgrepassword = () => {
-    repassword.onblur = () => {
+  let rgrepassword = repassword.onblur = () => {
       if (repassword.value == '') {
         console.log('空');
       } else if (repassword.value == password.value) {
         return true;
       } else {
         console.log('错误');
+        alert('两次输入密码不一样');
       }
     };
-  };
 
   //验证用户信息
-  rguser = () => {
+  let rguser = () => {
     if (rgid() && rgusername() && rgpassword() && rgrepassword()) {
       $.ajax({
         type: 'post',
@@ -77,14 +70,14 @@ window.onload = () => {
           userName: username.value,
           password: password.value,
         },
-        url: '/user',
+        url: 'http://192.168.1.106:8080/YouNi/user.do',
         success: function (json) {
           if (json.status == 1) {
-            sessionStorage('s_id', sid.value);
+            sessionStorage.setItem('s_id', sid.value);
             window.location.href = 'index.html';
           }else {
-            alert('信息有误！');
-            window.location.href = 'sign.html';
+            alert('网络异常,注册失败');
+            // window.location.href = 'sign.html';
           }
         },
 

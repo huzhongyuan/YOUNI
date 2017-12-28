@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title> 邮你</title>
-<!-- 重置浏览器css -->
-<link rel="stylesheet" href=" ../css/lib/normalize.css" />
-<!-- 引入index.css文件 -->
-<link rel="stylesheet" href="../css/page/lost.css">
-<!-- 引入bootstrap.min.css文件 -->
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-<!-- 引入bulma.css文件 -->
-<link rel="stylesheet" href="../bulma/css/bulma.css">
+<script type="text/javascript" src = "../js/module/header.js" data-css = "lost" data-title = "lost"></script>
 
 <!--必要样式-->
 
@@ -23,27 +9,68 @@
 <body>
 		  <!-- 页头开始 -->
     <header>
-      <nav>
-        <div class="logo"><a href="index.html">邮你</a></div>
-        <ul>
-          <li><a href="index.html" class=“active”>首页</a></li>
-          <li><a href="community.html">社区</a></li>
-          <li><a href="organization.html">组织</a></li>
-          <li><a href="lost.html">招领</a></li>
-          <li><a href="sign.html">注册</a></li>
-          <li><a href="login.html">登录</a></li>
-        </ul>
-      </nav>
+      <script type="text/javascript" src = "../js/module/nav.js"></script>
     </header>
           <!-- 页头结束 -->
 
     <!-- 内容开始 -->
+    <div class="content">
+      <aside class="menu">
+          <p class="menu-label">失物招领</p>
+            <ul class="menu-list">
+              <li><a href="lost.html" class="is-active">失物招领</a></li>
+              <li><a href="creatlost.html">创建失物信息</a></li>
+            </ul>
+      </aside>
+      <div class="table-responsive">
+        <table class="table table-hover">
+        <tbody id="lostbox">
+
+          <tr>
+            <td>失物名称</td>
+            <td>失物类型</td>
+            <td>地点</td>
+            <td>日期</td>
+            <td>查看</td>
+        </tr>
+
+        <tr>
+          <td>笔</td>
+          <td>文具</td>
+          <td>4401</td>
+          <td>2017/12/12</td>
+          <td><a class="btn btn-primary" href="lostcontent.html" role="button">查看</a></td>
+        </tr>
 
 
 
 
 
+        </tbody>
 
+
+      </table>
+        </div>
+        <!-- <div class="fenye">
+          <nav class="pagination" role="navigation" aria-label="pagination">
+            <a class="pagination-previous" title="This is the first page" disabled>上一页</a>
+            <a class="pagination-next">下一页</a>
+          <ul class="pagination-list">
+            <li>
+              <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+            </li>
+            <li>
+              <a class="pagination-link" aria-label="Goto page 2">2</a>
+            </li>
+            <li>
+              <a class="pagination-link" aria-label="Goto page 3">3</a>
+            </li>
+          </ul>
+        </nav>
+
+        </div> -->
+
+    </div>
       <!-- 内容结束 -->
 
         <!-- 页脚开始 -->
@@ -67,18 +94,15 @@
 
 
 
-		<!-- 内容结束 -->
+
 
 		<!-- <script src="../js/size/TweenLite.min.js"></script>
 		<script src="../js/size/EasePack.min.js"></script>
 		<script src="../js/size/rAF.js"></script>
 		<script src="../js/size/setsize.js"></script> -->
     <!-- 引入jquery文件 -->
-    <script type="text/javascript" src="../js/lib/jquery.min.js"></script>
-    <!-- 引入bootstrap.min.js文件 -->
-    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 
 		<div style="text-align:center;">
 </div>
 	</body>
-</html>
+    <script type="text/javascript" src = "../js/module/footer.js"></script>

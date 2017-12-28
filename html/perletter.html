@@ -8,7 +8,7 @@
 <!-- 重置浏览器css -->
 <link rel="stylesheet" href=" ../css/lib/normalize.css" />
 <!-- 引入user.css文件 -->
-<link rel="stylesheet" href="../css/page/user.css">
+<link rel="stylesheet" href="../css/page/perletter.css">
 <!-- 引入bootstrap.min.css文件 -->
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 <!-- 引入bulma.css文件 -->
@@ -54,75 +54,60 @@
                 <p class="menu-label">与我有关</p>
                 <ul class="menu-list">
                   <li><a href="history.html">浏览历史</a></li>
-                  <li><a href="perletter.html">私信</a></li>
+                  <li><a href="perletter.html" class="is-active">私信</a></li>
                   <li><a href="attention-me.html">关注我的</a></li>
                 </ul>
             </aside>
 
-            <div class="box">
-             <article class="media">
-               <div class="media-left">
-                 <figure class="image is-64x64">
-                   <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                 </figure>
-               </div>
-               <div class="media-content">
-                 <div class="content">
-                   <p>
-                     <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                     <br>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                   </p>
-                 </div>
-
-               </div>
-             </article>
-           </div>
-
-           <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <figure class="image is-64x64">
-                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                </figure>
+            <!-- 表单 -->
+            <div class="tabs is-centered">
+              <ul>
+                <li class="is-active"><a href="perletter.html">新建私信</a></li>
+                <li><a href="receiverbox.html">收信箱</a></li>
+                <li><a href="sendbox.html">发信箱</a></li>
+              </ul>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">收件人：</label>
               </div>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                    <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                  </p>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="请输入收件人账号">
+                  </div>
                 </div>
               </div>
-            </article>
-          </div>　
+            </div>
 
-          <div class="box">
-           <article class="media">
-             <div class="media-left">
-               <figure class="image is-64x64">
-                 <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-               </figure>
-             </div>
-             <div class="media-content">
-               <div class="content">
-                 <p>
-                   <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                   <br>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                 </p>
-               </div>
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">内容</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <textarea class="textarea" placeholder="请输入私信内容"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-             </div>
-           </article>
-         </div>
+<div class="field is-horizontal">
+  <div class="field-label">
+
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <button class="button is-link">
+          发送
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
           </div>
-
-
-
-
-
 
 
 
@@ -135,18 +120,19 @@
         <!-- 页脚开始 -->
     　<footer>
         <ul class="share-group">
-          <li><a href="https://www.baidu.com/">Baidu</a></li>
-          <li><a href="http://www.cqupt.edu.cn/cqupt/index.shtml">Cqupt</a></li>
+          <li>1</li>
+          <li>1</li>
           <li>1</li>
           <li>1</li>
           <li>1</li>
         </ul>
         <div class="copy">
-            <span>©信管工作室2017</span>
+            <span>©umeimmense</span>
         </div>
 
     </footer>
     <!-- 页脚结束 -->
+
 
 
 

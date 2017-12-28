@@ -1,5 +1,11 @@
-<script type="text/javascript" src = "../js/module/header.js" data-css = "userinfo" data-title = "userinfo"></script>
+<script type="text/javascript" src = "../js/module/header.js" data-css = "modifyuserinfo" data-title = "modifyuserinfo"></script>
 
+<!--必要样式-->
+
+<!--[if IE]>
+<script src="../js/size/html5.js"></script>
+<![endif]-->
+</head>
 <body>
 		  <!-- 页头开始 -->
     <header>
@@ -13,7 +19,8 @@
       <aside class="menu">
           <p class="menu-label">用户管理</p>
             <ul class="menu-list">
-              <li><a href="userinfo.html"  class="is-active">个人资料</a></li>
+              <li><a href="userinfo.html">个人资料</a></li>
+
               <li><a href="modifypass.html">修改密码</a></li>
             </ul>
           <p class="menu-label">用户功能</p>
@@ -33,50 +40,45 @@
         <table class="table table-hover">
         <tbody>
           <h2>个人资料</h2>
-            <a class="btn btn-primary" id="change" role="button" >修改</a>
+            <a class="btn btn-primary" id="submit" role="button" >提交</a>
           <tr>
-          <td>学号</td>
+          <td>姓名</td>
           <td></td>
-          <td id="Id">2016211052</td>
+          <td><input class="form-control" Id="userName" type="text" name="" value="刘岽"></td>
         </tr>
-        <tr>
-        <td>姓名</td>
-        <td></td>
-        <td id="username">刘岽</td>
-      </tr>
 
         <tr>
           <td>性别</td>
           <td></td>
-          <td id="sex">男</td>
+          <td><input class="form-control" id="sex" type="text" name="" value="男"></td>
 
         </tr>
 
         <tr>
           <td>出生年月</td>
           <td></td>
-          <td id="birthday">2017/12/12</td>
+          <td><input class="form-control" id="birthday" type="date" name="" value=""></td>
 
         </tr>
 
         <tr>
           <td>学院</td>
           <td></td>
-          <td id="academy">经济管理学院</td>
+          <td><input class="form-control" id="academy" type="text" name="" value="经济管理学院"></td>
 
         </tr>
 
         <tr>
           <td>班级代码</td>
           <td></td>
-          <td id="class_code">03011603</td>
+          <td><input class="form-control" id="classCode" type="text" name="" value="03011603"></td>
 
         </tr>
 
         <tr>
           <td>个人简介</td>
           <td></td>
-          <td id="selfIntroduction">。。。</td>
+          <td><textarea class="form-control" id="selfIntroduction" name="name" rows="8" cols="80">。。。</textarea></td>
 
         </tr>
 

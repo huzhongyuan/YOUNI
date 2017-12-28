@@ -1,5 +1,5 @@
 /* 导航栏样式设置 */
-.nav{
+nav{
   background: rgba(0,0,0,1);
   height: 50px;
 
@@ -15,7 +15,7 @@ header
 }
 
 
-.nav ul
+nav ul
 {
   list-style: none;
   margin: 0;
@@ -23,14 +23,14 @@ header
 
 }
 
-.nav ul li,nav .logo
+nav ul li,nav .logo
 {
   display: inline-block;
   line-height: 50px;
   margin-left: 50px;
 
 }
-.nav ul li a
+nav ul li a
 {
   line-height: inherit;
   text-decoration: none;
@@ -39,13 +39,13 @@ header
   color: #fff;
   margin-right: 20px;
 }
-.nav ul li.logo
+nav ul li.logo
 {
   float: left;
   padding: 10px;
 }
 
-.nav .logo a{
+nav .logo a{
   text-decoration: none;
   color: #fff;
   font-size: 18px;
@@ -66,24 +66,26 @@ header
   width: 200px;
   float:left;
   height: 100%;
-  margin-bottom: 50px;
 }
-
-
-/* table样式 */
-.table-responsive
+/* 分页样式 */
+.fenye
 {
-  margin-top:150px;
+  margin-bottom: 60px;
 }
-
-.btn
+.pagination
 {
+  width: 500px;
+
   float: right;
-  margin-right: 50px;
-  margin-bottom: 20px;
+  background:#fff;
+
+
 }
 
-
+.pagination-list
+{
+  text-decoration: none;
+}
 /* footer样式 */
 footer
 {

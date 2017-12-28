@@ -1,5 +1,5 @@
 /* 导航栏样式设置 */
-.nav{
+nav{
   background: rgba(0,0,0,1);
   height: 50px;
 
@@ -15,7 +15,7 @@ header
 }
 
 
-.nav ul
+nav ul
 {
   list-style: none;
   margin: 0;
@@ -23,14 +23,14 @@ header
 
 }
 
-.nav ul li,nav .logo
+nav ul li,nav .logo
 {
   display: inline-block;
   line-height: 50px;
   margin-left: 50px;
 
 }
-.nav ul li a
+nav ul li a
 {
   line-height: inherit;
   text-decoration: none;
@@ -39,49 +39,29 @@ header
   color: #fff;
   margin-right: 20px;
 }
-.nav ul li.logo
+nav ul li.logo
 {
   float: left;
   padding: 10px;
 }
 
-.nav .logo a{
+nav .logo a{
   text-decoration: none;
   color: #fff;
   font-size: 18px;
 }
 
-/* menu样式 */
-.content
+
+
+/* content样式 */
+
+.message-body  a
 {
-  margin: 80px;
-}
-
-.content .menu
-{
-
-  margin-left: 100px;
-
-  margin-right:100px;
-  width: 200px;
-  float:left;
-  height: 100%;
-  margin-bottom: 50px;
+  text-decoration: none;
+  color: red;
 }
 
 
-/* table样式 */
-.table-responsive
-{
-  margin-top:150px;
-}
-
-.btn
-{
-  float: right;
-  margin-right: 50px;
-  margin-bottom: 20px;
-}
 
 
 /* footer样式 */
@@ -91,7 +71,7 @@ footer
   color: #fff;
   min-height: 200px;
   text-align: center;
-  clear:both;
+
 }
 
 ul.share-group
