@@ -8,14 +8,14 @@ window.onload = function () {
     let arr = [];
 
     //加载热点话题
-    let hotTopic = new Promise((resolve, reject) => {
+    let ChotTopic = new Promise((resolve, reject) => {
       $.ajax({
         type: 'get',
         datType: 'json',
-        url: 'http://192.168.1.106:8080/YouNi/topic/hotTopic.do',
+        url: 'http://192.168.1.102:8080/YouNi/topic/hotTopic.do',
         success: function (json) {
           if (json.status == 1) {
-            for (let i in json.object) {
+            for (let i = 0; i < 5; i++) {
               let ms = document.createElement('div');
               ms.className = 'hotTitle';
               ms.innerHTML = '<a class="panel-block is-active " style="border-left-color:#dbdbdb;">' +
@@ -40,13 +40,13 @@ window.onload = function () {
       });
 
     });
-    hotTopic.then((successMessage) => {
+    ChotTopic.then((successMessage) => {
       console.log(successMessage);
       let hotTitle = document.getElementsByClassName('hotTitle');
       for (let i in hotTitle) {
         hotTitle[i].onclick = () => {
           sessionStorage.setItem('topicId', arr[i]);
-          window.location.herf = 'communityInfo.html';
+          window.location.href = 'communityInfo.html';
         };
       }
     });

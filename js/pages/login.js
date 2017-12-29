@@ -45,7 +45,7 @@ window.onload = () => {
           s_id: sid.value,
           password: password.value,
         },
-        url: 'http://192.168.1.106:8080/YouNi/session.do',
+        url: 'http://192.168.1.102:8080/YouNi/session.do',
         success: function (json) {
           if (json.status == 1) {
             sessionStorage.setItem('sid', sid.value);

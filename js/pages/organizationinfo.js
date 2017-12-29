@@ -1,6 +1,7 @@
 //jscs:disable
 window.onload = function () {
 //jscs:enable
+  // sessionStorage.setItem('activityId', '1');
   let activityId = sessionStorage.getItem('activityId');
   let theme = document.getElementById('theme');
   let description = document.getElementById('description');

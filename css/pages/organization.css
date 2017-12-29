@@ -51,6 +51,12 @@ nav .logo a{
   font-size: 18px;
 }
 
+/* 轮播样式 */
+
+.item
+{
+    height: 300px;
+}
 
 
 /* content样式 */
@@ -60,12 +66,18 @@ nav .logo a{
   width: 800px;
 
 }
+
+
 .message-body  a
 {
   text-decoration: none;
   color: red;
 }
 
+.Page
+{
+  background: #fff;
+}
 /* footer样式 */
 footer
 {

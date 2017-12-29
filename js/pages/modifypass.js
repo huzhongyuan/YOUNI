@@ -8,23 +8,20 @@ window.onload = function () {
   const rgp = /^\w+$/;
 
   //密码验证
-  let rnewpassword = () => {
-    newpassword.onblur = () => {
+  let rnewpassword =  newpassword.onblur = () => {
       if (newpassword.value == '') {
         console.log('密码为空');
       } else if (rgp.test(newpassword.value)) {
         console.log('正确');
-        alert(1);
         return true;
       }else {
         console.log('错误');
       }
     };
-  };
 
   //重复密码验证
-  let rrenewpassword = () => {
-    renewpassword.onblur = () => {
+
+  let rrenewpassword =  renewpassword.onblur = () => {
       if (renewpassword.value == '') {
         console.log('空');
       } else if (renewpassword.value == renewpassword.value) {
@@ -33,22 +30,22 @@ window.onload = function () {
         console.log('错误');
       }
     };
-  };
 
   //修改密码
   let rguser = () => {
     if (rnewpassword() && rrenewpassword()) {
-      const sId = sessionStorage.getItem('s_id');
+      const sid = sessionStorage.getItem('sid');
       $.ajax({
         type: 'post',
         datType: 'json',
         data: {
-          s_id: sId,
-          password: password.value,
-          newpassword: newpassword.value,
+          s_id: sid,
+          oldPassword: password.value,
+          newPassword: newpassword.value,
         },
-        url: '/user',
+        url: 'http://192.168.1.102:8080/YouNi/user/password.do',
         success: function (json) {
+          alert('密码修改成功');
           window.location.href = 'userinfo.html';
         },
 

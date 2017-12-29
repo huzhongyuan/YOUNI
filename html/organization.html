@@ -1,7 +1,11 @@
 <script type="text/javascript" src = "../js/module/header.js" data-css = "organization" data-title = "organization"></script>
 
+<!--必要样式-->
 
-
+<!--[if IE]>
+<script src="../js/size/html5.js"></script>
+<![endif]-->
+</head>
 <body>
 		  <!-- 页头开始 -->
     <header>
@@ -9,97 +13,88 @@
     </header>
           <!-- 页头结束 -->
 
+
     <!-- 内容开始 -->
-    <div class="content">
-      <article class="message is-dark">
-        <div class="message-header">
-          <p>Dark</p>
+    <!-- 轮播开始 -->
+    <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-generic" data-slide-to="2"></li>
+      </ol>
 
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="../img/banner.jpg" alt="...">
+          <div class="carousel-caption">
+
+          </div>
         </div>
-        <div class="message-body">
-          Lorem ipsum dolor
-            <strong>Pellentesque risus mi</strong>,
-            tempus quis placerat ut, porta nec nulla.
-            Vestibulum rhoncus ac ex sit amet fringilla.
-            Nullam gravida purus diam, et dictum .
+        <div class="item">
+        <img src="../img/banner.jpg" alt="...">
+          <div class="carousel-caption">
+
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../img/banner.jpg" alt="...">
+          <div class="carousel-caption">
+
+          </div>
+        </div>
       </div>
 
-     </article>
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">上一张</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">下一张</span>
+      </a>
+    </div>
+    <!-- 轮播结束 -->
 
-     <article class="message is-dark">
-       <div class="message-header">
-         <p>Dark</p>
 
-       </div>
-       <div class="message-body">
-         Lorem ipsum dolor
-           <strong>Pellentesque risus mi</strong>,
-           tempus quis placerat ut, porta nec nulla.
-           Vestibulum rhoncus ac ex sit amet fringilla.
-           Nullam gravida purus diam, et dictum .
-     </div>
 
-    </article>
-
-    <article class="message is-dark">
-      <div class="message-header">
-        <p>Dark</p>
-
+    <div class="content" id="lostbox">
+      <div class="columns">
+        <!-- <div class="column">
+          <div class="field">
+          <div class="control">
+            <div class="select is-dark">
+              <select>
+                <option>校级组织</option>
+                <option>院级组织</option>
+                <option>社团</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div> -->
+        <div class="column">
+          <div class="field">
+          <div class="control">
+            <div class="select is-dark">
+              <select class="orga">
+                <option class="organization" value="0">00000</option>
+                <option class="organization" value="1">学生社团联合会</option>
+                <option class="organization" value="2">学生科技联合会</option>
+                <option class="organization" value="3">学生青年志愿者协会</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
       </div>
-      <div class="message-body">
-        Lorem ipsum dolor
-          <strong>Pellentesque risus mi</strong>,
-          tempus quis placerat ut, porta nec nulla.
-          Vestibulum rhoncus ac ex sit amet fringilla.
-          Nullam gravida purus diam, et dictum .
+
+    <div>
     </div>
 
-   </article>
-
-   <article class="message is-dark">
-     <div class="message-header">
-       <p>Dark</p>
-
-     </div>
-     <div class="message-body">
-       Lorem ipsum dolor
-         <strong>Pellentesque risus mi</strong>,
-         tempus quis placerat ut, porta nec nulla.
-         Vestibulum rhoncus ac ex sit amet fringilla.
-         Nullam gravida purus diam, et dictum .
-   </div>
-
-  </article>
-
-  <article class="message is-dark">
-    <div class="message-header">
-      <p>Dark</p>
-
-    </div>
-    <div class="message-body">
-      Lorem ipsum dolor
-        <strong>Pellentesque risus mi</strong>,
-        tempus quis placerat ut, porta nec nulla.
-        Vestibulum rhoncus ac ex sit amet fringilla.
-        Nullam gravida purus diam, et dictum .
-  </div>
-
- </article>
-
- <article class="message is-dark">
-   <div class="message-header">
-     <p>Dark</p>
-
-   </div>
-   <div class="message-body">
-     Lorem ipsum dolor
-       <strong>Pellentesque risus mi</strong>,
-       tempus quis placerat ut, porta nec nulla.
-       Vestibulum rhoncus ac ex sit amet fringilla.
-       Nullam gravida purus diam, et dictum .
- </div>
-
-</article>
     </div>
 
 
@@ -137,11 +132,8 @@
 		<script src="../js/size/rAF.js"></script>
 		<script src="../js/size/setsize.js"></script> -->
     <!-- 引入jquery文件 -->
-    <!-- <script type="text/javascript" src="../js/lib/jquery.min.js"></script> -->
-    <!-- 引入bootstrap.min.js文件 -->
-    <!-- <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script> -->
 
 		<div style="text-align:center;">
 </div>
 	</body>
-    <script type="text/javascript" src = "../js/module/footer.js"></script>
+  <script type="text/javascript" src = "../js/module/footer.js"></script>

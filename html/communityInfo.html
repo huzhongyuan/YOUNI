@@ -48,34 +48,18 @@
     <div class="media-content" id="mediaContent">
       <div class="content">
         <p>
-          <span class="title" style="font-size:20px;">Barbara Middleton</span>
+          <span class="title" style="font-size:20px;"></span>
           <br>
-          <span class="con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.</span>
+          <span class="con"></span>
           <br>
-          <span class="name" style="font-size:14px;float:right;margin-right:80px;">--胡钟元</span>
+          <span class="name" style="font-size:14px;float:right;margin-right:80px;"></span>
           <br>
-          <small style="float:right;margin-right:80px;"><span class="praise" style="cursor:pointer;">👍</span><span class="num"> +10 </span>· 3 hrs</small>
+          <small style="float:right;margin-right:80px;"><span class="praise" style="cursor:pointer;">👍+</span><span class="num">111</span>&nbsp;&nbsp;<span class="time">3 hrs</span></small>
           <br>
           <small style="float:right;margin-right:80px;font-size:12px;color:#cccccc;">浏览量：<span class="view" style="color:#cccccc;">11</span></small>
         </p>
       </div>
 
-      <article class="media"style="">
-        <figure class="media-left">
-          <p class="image is-48x48">
-            <img src="https://bulma.io/images/placeholders/96x96.png">
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <p>
-            <span class="rcon">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.</span>
-            <br>
-              <small><span class="rname" style="font-size:14px;">胡钟元</span>·<span class="rtime">2 hrs</span></small>
-            </p>
-          </div>
-        </div>
-      </article>
 
 
     </div>
@@ -160,5 +144,175 @@
 		<div style="text-align:center;">
 </div>
 	</body>
+
+<script type="text/jscript">
+let topicId = sessionStorage.getItem('topicId');
+let sid = sessionStorage.getItem('sid');
+let title = document.getElementsByClassName('title')[0];
+let con = document.getElementsByClassName('con')[0];
+let name = document.getElementsByClassName('name')[0];
+let time = document.getElementsByClassName('time')[0];
+let num = document.getElementsByClassName('num')[0];
+let view = document.getElementsByClassName('view')[0];
+let mediaContent = document.getElementById('mediaContent');
+let replycontent = document.getElementById('replycontent');
+let reply = document.getElementById('reply');
+let praise = document.getElementsByClassName('praise')[0];
+
+//增加点赞量
+praise.onclick = () => {
+  $.ajax({
+    type: 'post',
+    datType: 'json',
+    url: 'http://192.168.1.102:8080/YouNi/praise/' + topicId + '.do',
+    success: function (json) {
+      if (json.status == 1) {
+        console.log('success');
+        num.innerHTML = json.praise_amount;
+      }else {
+        alert('网络错误');
+      }
+    },
+
+    error: function (json) {
+      alert(JSON.stringify(json));
+    },
+  });
+};
+
+//增加浏览量
+let addview = () => {
+  $.ajax({
+    type: 'post',
+    datType: 'json',
+    url: 'http://192.168.1.102:8080/YouNi/topic/click_amount.do',
+    data: {
+      topic_id: topicId,
+    },
+    success: function (json) {
+      if (json.status == 1) {
+      }else {
+        alert('网络错误');
+      }
+    },
+
+    error: function (json) {
+      alert(JSON.stringify(json));
+    },
+  });
+}
+
+//增加浏览量
+addview();
+
+//加载话题
+let topicajax = () => {
+
+  $.ajax({
+    type: 'get',
+    datType: 'json',
+    url: 'http://192.168.1.102:8080/YouNi/topic/one/' + topicId + '.do',
+    success: function (json) {
+      if (json.status == 1) {
+        title.innerHTML = json.object.theme;
+        con.innerHTML = json.object.description;
+        name.innerHTML = json.object.userName;
+        time.innerHTML = json.object.publish_time;
+        num.innerHTML = json.object.praise_amount;
+        view.innerHTML = json.object.click_amount;
+      }else {
+        alert('网络错误');
+      }
+    },
+
+    error: function (json) {
+      alert(JSON.stringify(json));
+    },
+  });
+};
+
+//加载话题
+topicajax();
+
+//加载评论
+let commentajax = () => {
+  $.ajax({
+    type: 'get',
+    datType: 'json',
+    url: 'http://192.168.1.102:8080/YouNi/topicreply/' +  topicId + '.do',
+    success: function (json) {
+      if (json.status == 1) {
+        console.log('success');
+        for (let i in json.object) {
+          let ms = document.createElement('media');
+          ms.className = 'media';
+          ms.innerHTML = '<figure class="media-left">' +
+            '<p class="image is-48x48">' +
+              '<img src="https://bulma.io/images/placeholders/96x96.png">' +
+            '</p>' +
+          '</figure>' +
+          '<div class="media-content">' +
+            '<div class="content">' +
+              '<p>' +
+              '<span class="rcon">' +  json.object[i].content + '</span>' +
+              '<br>' +
+                '<small><span class="rname" style="font-size:14px;">' + json.object[i].userName + '</span>·<span class="rtime">' + json.object[i].reply_date + '</span></small>' +
+              '</p>' +
+            '</div>' +
+          '</div>';
+          mediaContent.appendChild(ms);
+        }
+      }else {
+        alert('网络错误');
+      }
+    },
+
+    error: function (json) {
+      alert(JSON.stringify(json));
+    },
+  });
+};
+
+//加载评论
+commentajax();
+
+
+
+
+//回复话题
+let replytopic = () => {
+  reply.onclick = () => {
+    if (replycontent != '') {
+      $.ajax({
+        type: 'post',
+        datType: 'json',
+        url: 'http://192.168.1.102:8080/YouNi/topicreply.do',
+        data: {
+          s_id: sid,
+          topic_id: topicId,
+          content: replycontent.value,
+        },
+        success: function (json) {
+          if (json.status == 1) {
+            window.location.href = 'communityInfo.html';
+          }else {
+            alert('网络错误');
+          }
+        },
+
+        error: function (json) {
+          alert(JSON.stringify(json));
+        },
+      });
+    };
+  };
+};
+
+//回复话题
+replytopic();
+
+
+</script>
+
   <script type="text/javascript" src="../js/module/Communityhurdles.js"></script>
     <script type="text/javascript" src = "../js/module/footer.js"></script>

@@ -1,8 +1,5 @@
 <script type="text/javascript" src = "../js/module/header.js" data-css = "community" data-title = "community"></script>
 
-
-
-
 <body>
 		  <!-- 页头开始 -->
     <header>
@@ -19,7 +16,7 @@
           <article class="media" style="width:900px;margin:0px auto;margin-top:20px;">
             <figure class="media-left">
               <p class="image is-64x64">
-                <img src="https://bulma.io/images/placeholders/128x128.png">
+                <!-- <img src="https://bulma.io/images/placeholders/128x128.png"> -->
               </p>
             </figure>
 
@@ -33,45 +30,17 @@
               </div>
               <div class="field">
                 <p class="control">
-                  <button class="button is-success" id="publish" style="float:right;">发表</button>
+                  <input class="button is-success" id="publish" style="float:right;width:80px;" value="发表">
                 </p>
               </div>
             </div>
           </article>
 
     <!-- 内容开始 -->
-    <div class="" style="width:900px;margin: auto;">
-<article class="media">
-<figure class="media-left">
-<p class="image is-64x64">
-  <img src="https://bulma.io/images/placeholders/128x128.png">
-</p>
-</figure>
-<div class="media-content">
-<div class="content">
-  <p>
-    <span class="title" style="font-size:20px;">Barbara Middleton</span>
-    <br>
-    <span class="con">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.</span>
-    <br>
-    <span class="name" style="font-size:14px;float:right;margin-right:80px;">--胡钟元</span>
-    <br>
-    <small style="float:right;margin-right:80px;"><span class="praise" style="cursor:pointer;">👍</span><span class="num"> +10 </span> · <span class="reply"  style="cursor:pointer;">回复</span> · 3 hrs</small>
-    <br>
-    <small style="float:right;margin-right:80px;font-size:12px;color:#cccccc;">浏览量：<span class="view" style="color:#cccccc;">11</span></small>
-  </p>
-</div>
-</div>
-</article>
-
-
-
-
-
-
+    <div id="box" style="width:900px;margin: auto;">
 
 <!-- 这是一个评论框 -->
-<nav class="pagination is-centered" role="navigation" aria-label="pagination" style="background-color:white;margin-top:20px;">
+<!-- <nav class="pagination is-centered" role="navigation" aria-label="pagination" style="background-color:white;margin-top:20px;">
   <a class="pagination-previous">Previous</a>
   <a class="pagination-next">Next page</a>
   <ul class="pagination-list">
@@ -83,7 +52,7 @@
     <li><span class="pagination-ellipsis">&hellip;</span></li>
     <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
   </ul>
-</nav>
+</nav> -->
   </div>
 
 
@@ -110,10 +79,6 @@
 
     </footer>
     <!-- 页脚结束 -->
-
-
-
-
 
     <div style="position:fixed;top:150px;right:50px;">
       <nav class="panel" id="topicBox">
@@ -153,5 +118,139 @@
 		<div style="text-align:center;">
 </div>
 	</body>
+  <script type="text/ecmascript">
+  let addTopicTitle = document.getElementById('addTopicTitle');
+  let addTopicContent = document.getElementById('addTopicContent');
+  let publish = document.getElementById('publish');
+  let topic = [];
+
+  //点击发表话题
+  publish.onclick = () => {
+    if (addTopicTitle.value != '' && addTopicContent.value != '') {
+      let sid = sessionStorage.getItem('sid');
+      $.ajax({
+        type: 'post',
+        datType: 'json',
+        url: 'http://192.168.1.102:8080/YouNi/topic.do',
+        data: {
+          s_id: sid,
+          theme: addTopicTitle.value,
+          description: addTopicContent.value,
+        },
+        success: function (json) {
+          if (json.status == 1) {
+            alert('发帖成功');
+            window.location.href = 'community.html';
+          }else {
+            alert('网络错误');
+          }
+        },
+
+        error: function (json) {
+          alert(JSON.stringify(json));
+        },
+      });
+    }
+  };
+
+  //加载话题
+  let getallTopic = new Promise((resolve, reject) => {
+    let box = document.getElementById('box');
+    $.ajax({
+      type: 'get',
+      datType: 'json',
+      url: 'http://192.168.1.102:8080/YouNi/topic.do',
+      success: function (json) {
+        if (json.status == 1) {
+          for (let i in json.object) {
+            let ms = document.createElement('article');
+            ms.className = 'media';
+            ms.innerHTML = '<figure class="media-left">' +
+            '<p class="image is-64x64">' +
+
+            '</p>' +
+            '</figure>' +
+            '<div class="media-content">' +
+            '<div class="content">' +
+              '<p>' +
+                '<span class="title" style="font-size:20px;">' + json.object[i].theme + '</span>' +
+                '<br>' +
+                '<span class="con">' + json.object[i].description + '</span>' +
+                '<br>' +
+                '<span class="name" style="font-size:14px;float:right;margin-right:80px;">' + '--' + json.object[i].userName + '</span>' +
+                '<br>' +
+                '<small style="float:right;margin-right:80px;"><span class="praise" style="cursor:pointer;">👍</span><span class="num"> ' + json.object[i].praise_amount + ' </span> · <span class="reply"  style="cursor:pointer;">回复</span> · 3 hrs</small>' +
+                '<br>' +
+                '<small style="float:right;margin-right:80px;font-size:12px;color:#cccccc;"><span class="view" style="color:#cccccc;">' + json.object[i].click_amount + '</span></small>' +
+              '</p>' +
+            '</div>' +
+            '</div>';
+            box.appendChild(ms);
+            topic.push(json.object[i].topic_id);
+          };
+
+          resolve('Success!');
+        }else {
+          alert('网络错误');
+        }
+      },
+
+      error: function (json) {
+        alert(JSON.stringify(json));
+      },
+    });
+  });
+
+  //加载话题之后的操作
+  getallTopic.then((successMessage) => {
+    console.log(successMessage);
+    //点赞
+    (function () {
+      let praise = document.getElementsByClassName('praise');
+      let num = document.getElementsByClassName('num');
+      let title = document.getElementsByClassName('title');
+      let con = document.getElementsByClassName('con');
+      let reply = document.getElementsByClassName('reply');
+      for (let i in praise) {
+        praise[i].onclick = () => {
+          $.ajax({
+            type: 'post',
+            datType: 'json',
+            url: 'http://192.168.1.102:8080/YouNi/praise/' + topic[i] + '.do',
+            success: function (json) {
+              if (json.status == 1) {
+                num[i].innerHTML = json.praise_amount;
+              }else {
+                alert('网络错误');
+              }
+            },
+
+            error: function (json) {
+              alert(JSON.stringify(json));
+            },
+          });
+        };
+
+        //点击跳转到话题详情
+        title[i].onclick = () => {
+          sessionStorage.setItem('topicId', topic[i]);
+          window.location.href = 'communityInfo.html';
+        };
+
+        con[i].onclick = () => {
+          sessionStorage.setItem('topicId', topic[i]);
+          window.location.href = 'communityInfo.html';
+        };
+
+        reply[i].onclick = () => {
+          sessionStorage.setItem('topicId', topic[i]);
+          window.location.href = 'communityInfo.html';
+        };
+      }
+    })();
+
+  });
+
+  </script>
     <script type="text/javascript" src="../js/module/Communityhurdles.js"></script>
     <script type="text/javascript" src = "../js/module/footer.js"></script>

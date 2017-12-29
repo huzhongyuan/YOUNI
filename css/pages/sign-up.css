@@ -51,14 +51,10 @@ nav .logo a{
   font-size: 18px;
 }
 
-
-
-/* content样式 */
-
-.message-body  a
+/* menu样式 */
+.content
 {
-  text-decoration: none;
-  color: red;
+  margin: 80px;
 }
 
 
@@ -71,7 +67,7 @@ footer
   color: #fff;
   min-height: 200px;
   text-align: center;
-
+  clear:both;
 }
 
 ul.share-group
@@ -82,9 +78,16 @@ ul.share-group
   padding: 50px;
 }
 
-.share-group li{
+.share-group li
+{
   display: inline-block;
   padding: 10px;
+
+}
+
+.share-group li a
+{
+  color: #fff;
 }
 
 .copy

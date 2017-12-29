@@ -46,4 +46,6 @@ const headerTpl = () => {
 const header = html + headerTpl.toString().replace(/^[^\/]+\/\*!?/, '').replace(/\*\/[^\/]+$/, '');
 //jscs:enable
 document.write(header);
+
+
 })();

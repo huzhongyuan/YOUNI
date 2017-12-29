@@ -15,7 +15,7 @@ window.onload = function () {
     $.ajax({
       type: 'get',
       datType: 'json',
-      url: 'http://192.168.1.106:8080/YouNi/user.do',
+      url: 'http://192.168.1.102:8080/YouNi/user.do',
       data: {
         s_id: sId,
       },
@@ -40,12 +40,11 @@ window.onload = function () {
 
   const submit = document.getElementById('submit');
   submit.onclick = () => {
-    //加载个人信息
     let loadperson = () => {
       $.ajax({
-        type: 'patch',
+        type: 'post',
         datType: 'json',
-        url: 'http://192.168.1.106:8080/YouNi/user.do',
+        url: 'http://192.168.1.102:8080/YouNi/user/info.do',
         data: {
           s_id: sId,
           userName: username.value,
